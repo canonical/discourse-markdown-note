@@ -1,7 +1,16 @@
 .p-notification__response {
-    padding: .5rem;
-    border: 1px solid #eee;
+  padding: .5rem;
+  border: 1px solid #666;
 }
+
+.p-notification--caution .p-notification__response {
+  border-color:#f99b11;
+}
+
+.p-notification--positive .p-notification__response {
+  border-color:#0e8420;
+}
+
 .p-notification__status {
-    font-weight: bold;
+  font-weight: bold;
 }
