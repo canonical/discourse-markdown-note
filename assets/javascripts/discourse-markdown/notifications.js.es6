@@ -6,6 +6,8 @@ export function setup(helper) {
             'div.p-notification',
             'div.p-notification--caution',
             'div.p-notification--positive',
+            'div.p-notification--negative',
+            'div.p-notification--important',
             'p.p-notification__response',
             'span.p-notification__status',
             'span.p-notification__line'
@@ -27,7 +29,9 @@ export function setup(helper) {
 
                 if (
                     'type' in tagInfo.attrs
-                    && ['caution', 'positive'].includes(tagInfo.attrs.type.toLowerCase())
+                    && ['caution', 'positive', 'negative', 'important'].includes(
+                        tagInfo.attrs.type.toLowerCase()
+                    )
                 ) {
                     type = "--" + tagInfo.attrs.type.toLowerCase();
                 }

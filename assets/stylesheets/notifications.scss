@@ -11,6 +11,14 @@
   border-color:#0e8420;
 }
 
+.p-notification--negative .p-notification__response {
+  border-color:#c7162b;
+}
+
+.p-notification--important .p-notification__response {
+  border-color:#335280;
+}
+
 .p-notification__status {
   font-weight: bold;
 }
