@@ -38,12 +38,12 @@ export function setup(helper) {
 
                 let notification_block = state.push('html_raw', '', 0);
 
+                let rendered_contents = md.render(content).trim().replace(/^<p>|<\/p>$/g, '')
+
                 notification_block.content = '<div class="p-notification' + type + '">'
                     +  '  <p class="p-notification__response">'
-                    +  status
-                    +  '    <span class="p-notification__line">'
-                    +  content
-                    +  '    </span>'
+                    +  status + '\n'
+                    +  rendered_contents
                     +  '  </p>'
                     +  '</div>';
 
