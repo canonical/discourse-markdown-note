@@ -1,0 +1,11 @@
+{
+  "name": "discourse-markdown-note",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "prettier --write **/*.{es6,scss}"
+  },
+  "license": "LGPLv3",
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}

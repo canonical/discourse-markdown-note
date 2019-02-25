@@ -1,22 +1,22 @@
 .p-notification__response {
-  padding: .5rem;
+  padding: 0.5rem;
   border: 1px solid #666;
 }
 
 .p-notification--caution .p-notification__response {
-  border-color:#f99b11;
+  border-color: #f99b11;
 }
 
 .p-notification--positive .p-notification__response {
-  border-color:#0e8420;
+  border-color: #0e8420;
 }
 
 .p-notification--negative .p-notification__response {
-  border-color:#c7162b;
+  border-color: #c7162b;
 }
 
 .p-notification--important .p-notification__response {
-  border-color:#335280;
+  border-color: #335280;
 }
 
 .p-notification__status {
