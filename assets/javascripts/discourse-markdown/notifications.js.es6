@@ -3,13 +3,13 @@ export function setup(helper) {
     return;
   }
 
-  helper.whiteList([
+  helper.allowList([
     'div.p-notification',
     'div.p-notification--caution',
     'div.p-notification--positive',
     'div.p-notification--negative',
     'div.p-notification--important',
-    'p.p-notification__response',
+    'div.p-notification__response',
     'span.p-notification__status'
   ]);
 
@@ -32,8 +32,7 @@ export function setup(helper) {
         // Start wrapper elements:
         // <div class="p-notification"><p class="p-notification__render">
         state.push('div_open', 'div', 1).attrSet('class', notificationClass);
-        state.push('paragraph_open', 'p', 1).attrSet('class', 'p-notification__response');
-
+        state.push('div_open', 'div', 1).attrSet('class', 'p-notification__response');
         // Add status:
         // <span class="p-notification__status">{status}</span>
         if ('status' in tagInfo.attrs) {
@@ -42,17 +41,27 @@ export function setup(helper) {
           state.push('span_close', 'span', -1);
         }
 
-        // Add the [note] content inline
-        let token = state.push('inline', '', 0);
-        token.content = content;
-        token.children = [];
-
+        // Add the [note] content
+        const tokens = state.md.parse(content);
+        tokens.forEach(element => {
+          // For some reason, "inline" elements contain their text twice,
+          // which duplicates the text on the page.
+          // This is because the text appears both inside the "content" of the inline block,
+          // and in a "text" child node of the block.
+          // We therefore strip the "content", so the text only appears once.
+          if (element.type == "inline") {
+            element.content = ""
+          }
+          state.tokens.push(element)
+        });
+        
         // Close the wrapper elements
-        state.push('paragraph_close', 'p', -1);
+        state.push('div_close', 'div', -1);
         state.push('div_close', 'div', -1);
 
         return true;
       }
     });
+    
   });
 }
