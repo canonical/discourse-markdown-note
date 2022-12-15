@@ -1,4 +1,8 @@
-export function setup(helper) {
+export function setup(helper, siteSettings) {
+  if (!siteSettings.markdown_note_enabled) {
+    return;
+  }
+
   if (!helper.markdownIt) {
     return;
   }

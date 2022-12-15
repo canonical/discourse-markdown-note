@@ -1,0 +1,4 @@
+plugins:
+  markdown_note_enabled:
+    default: true
+    client: true
