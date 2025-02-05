@@ -42,7 +42,7 @@ export function setup(helper) {
         }
 
         // Add the [note] content
-        const tokens = state.md.parse(content);
+        const tokens = state.md.parse(content, state.md);
         tokens.forEach(element => {
           // For some reason, "inline" elements contain their text twice,
           // which duplicates the text on the page.
