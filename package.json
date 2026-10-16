@@ -2,7 +2,7 @@
   "name": "discourse-markdown-note",
   "version": "0.0.2",
   "scripts": {
-    "lint": "prettier --write **/*.{es6,scss}"
+    "lint": "prettier --write **/*.{js,scss}"
   },
   "license": "LGPLv3",
   "devDependencies": {
